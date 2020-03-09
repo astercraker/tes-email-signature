@@ -16,20 +16,20 @@
         transition: transform .8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
         .content-image{
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        -webkit-transform: skew(25deg)  translate(-20%, -50%);
-        transform: skew(25deg) translate(-20%, -50%);
+        -webkit-transform: skew(25deg) translateY(50%);
+        transform: skew(25deg) translateY(50%);
         }
         .content-image a{
-        text-decoration: none !important;
-        color: white;
+          text-decoration: none !important;
+          color: white;
         }
         .content-image h3{
-        padding: 0;
-        margin: 0;
-        color: #00A052;
+          padding: 0;
+          margin: 0;
+          color: #00A052;
+          font-size: 16px;
+          margin-top: 10px;
+          font-family: Arial, Helvetica, sans-serif;
         }
         span{
         color: white;
@@ -37,8 +37,11 @@
         .social-items{
             margin: 10px 5px 10px 0px;
         }
+        .social-items span img{
+          width: 20px;
+        }
         .social-items span a{
-            padding: 10px;
+            padding: 10px 10px 10px 0;
             text-decoration: none;
             color: white;
         }
@@ -50,7 +53,21 @@
             padding-right: 20px;
             box-shadow: 10px 5px 10px -2px rgba(0,0,0,0.3);
         }
-        @media only screen and (min-width:1025px) {
+        
+        @media only screen and (max-width:800px) {
+          .skew-container {
+            display: block;
+            height: 150px;
+            transform: none;
+          }
+          .skew-container + td{
+            display: block;
+          }
+          .content-image{
+            transform: translateY(50%);
+          }
+        }
+        @media only screen and (min-width:800px) {
             table{
                 height: 200px;
             }
@@ -65,34 +82,33 @@
           <tr>
             <td class="skew-container">
               <div class="content-image">
-                <a href="http://lickcreative.com"><img class="logo" src="https://www.bikey.com.mx/wp-content/uploads/2019/07/logo-base-1-e1564073734267.png" alt="Lick Logo" height="50px" />
+                <a href="https://www.bikey.com.mx/"><img class="logo" src="https://www.bikey.com.mx/wp-content/uploads/2019/07/logo-base-1-e1564073734267.png" alt="Lick Logo" height="50px" />
                   <h3>Expertos en Consultoria SAP</h3>
                 </a>
               </div>
-              <a style="opacity: 0;visibility:hidden;" href="http://lickcreative.com"><img class="logo" src="https://www.bikey.com.mx/wp-content/uploads/2019/07/logo-base-1-e1564073734267.png" alt="Lick Logo" height="80px" /></a>
             </td>
-            <td>
+            <td style="padding: 20px;">
               <div class="info-container">
-                  <span style="font-size: 22pt; font-weight: 700;">
+                <span style="font-size: 22pt; font-weight: 700;">
                  Daniel Benavides
-              </span>
+                </span>
               <br />
               <span style="font-size: 13pt;color:#8FD313;">
                  Consultor SAP IT
               </span>
               </div>
-              <hr style="border-style: solid; border-color: white;" />
+              <!-- <hr style="border-style: solid; border-color: white;" /> -->
               <div class="social-items" style="position: relative;">
                <span>
-                 <img style="transform: translateY(calc(50% - 8px));" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAfCAYAAABplKSyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAKlSURBVFhH7ZexcSoxEIbFSwhxB9ABJiIz7gA6gIyAgIACKIHITo3HQwxUAB1ABzYV4IECePftu18W8h0GD2+c+JvR3GlPu/olrYQoHBLcD/Mnff4ovyLEyZxYr9duPp+7t7c3K7BcLu2Zx/39vT0rlYqVZrPpbm9vzZYLImKenp4OSQDEXaUQazwep9E/82kmOp2Oe35+tvdyuexarZaNhFGBRpqHZoqZYyZns5nbbDZmI3YyQHs/wqSktNttU14qlWw2rgWxiEnsREhq/cCLWCwWXsBqtUqt14OYEkJfIV6EZmE4HKaW69Pv960P+grxW1TZH6/5+/u7q9VqrlAoXFTwwTeE/AL15UnFmMKg6qlWq/7bpSUZUBrlA30L8TWtl9hut5ZE2PhG/VxeX1+PEjH0VbwQ32uj0bAGBKAk29I7kEiqn1Noi4+EUFdc6vQV4kUoMTlYbm5u7D05Jyyrk1PP6peUZP3NlxjUiakDME5ML4IpC9efhtjY49QZFSP5CtpoBvAlhgZIoY94aT+SIIGPTKM6o65ZmU6nZoPJZHK4u7s7FItFK7xjE7TFB191SExixwLgSEQMZwbBwjUcDAZ+VHHhm1COnXPunBSh9dQJymjV4cPDw2G321nhXXbNCD7UyYOvyBWhKUWIYNolIEZCaCM0iHAps8gVoWQajUap5WDrj43Rx2DjG20Evtji3RCTKYLkwZkS7ohLReCrOFkJKTKvd9wBgFuR7hFQr9ft+fLyYs8Q2dQG8CUGnLqRZYrQDwyXmZBut2vPXq/nHh8f3X6/t8I7NlAboRhccHJJZ+QI/eSG+SDO3aJCeUHMPDJFaI/Hlw/x1WEVQgxixb8XId8ScQnniMi88nMp+R9kdGVkJmaiOn27Hqdi/v4h/odzfwHZRU307UO5FwAAAABJRU5ErkJggg==" alt="email icon"> 
+                 <img style="transform: translateY(calc(50% - 8px));margin-top: 20px;" src="img/icon-phone-white.png" alt="email icon"> 
                 <a href=""> 811-611-3010 </a>
               </span>
                <span>
-                <img style="transform: translateY(calc(50% - 8px));" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAiCAYAAABFlhkzAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAACtSURBVEhL7ZbhCQMhDIVjF1AncwRxUkfSDVqf2F5PKzna86CQD4IQ8vIS/BN1L9BCbu19kXOmEAJZa0kpdTiggXYAG7zjnMNGX4X3vnXZGAyexTHGluFBLTTGmJbZGP4A6/5C1278g7OZbtBPwjHTLd9ADFjEgEUMWMSARQxYxIDl/6+KqUE5puo0RwK1QGtd3x2lYMfy0zGlVE3KNB+bzALNoe25/nw/m8UGRA993jinEWyBzQAAAABJRU5ErkJggg==" alt="email icon">
+                <img style="transform: translateY(calc(50% - 8px));margin-top: 20px;" src="img/telefono-inteligente-white.png" alt="email icon">
                  <a href=""> (82)-2091-5937</a>
                 </span>
                <span>
-                <img style="transform: translateY(calc(50% - 8px));" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAI1JREFUeNpiYBgFo2AUjIJRQGWwH4j/k4DnU8NSBxItfQ+l8QImEhwwAYgLgfgDDnmQeCAQb6BWMCP7eD2Uvx7Nl/1QceQooXpQg4KyAIgDoA4A0Q1YgpxmcXweiBOA+D4Oebonrv/UTlxUBYPa4g+0sJiFCDUXgDgRiOOJNBPk0IWjhf0oGAXDHwAEGADLzk+5jmhH4gAAAABJRU5ErkJggg==" alt="email icon">
+                <img style="transform: translateY(calc(50% - 5px));margin-top: 20px;" src="img/email-icon-white.png" alt="email icon">
                  <a href="">daniel.benavides@bikey.com.mx</a>
                 </span>
               </div>
